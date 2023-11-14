@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/delivery.css' %}">
+    <link rel="icon" type="image/ico" href="{% static 'img/logo_dj.png' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Доставка</title>
+</head>
+<body>
+    <header>
+        <img class="head-logo" src="{% static 'img/jpg.png' %}" alt="Logo">
+        <h1>Оформление заказа онлайн</h1>
+    </header>
+
+    <section class="order-form">
+        <form action="{% url 'zakaz' %}" method="post">
+            {% csrf_token %}
+            <label for="pizza_type">Выберите пиццу:</label>
+            <select id="pizza_type" name="pizza_name">
+                <option value="Маргарита">Маргарита</option>
+                <option value="Пепперони">Пепперони</option>
+                <option value="Гавайская">Гавайская</option>
+            </select>
+
+            <label for="quantity">Количество:</label>
+            <input type="number" id="quantity" name="quantity" min="1" required>
+
+            <label for="delivery_address">Адрес доставки:</label>
+            <textarea id="delivery_address" name="delivery_address" rows="4" required ></textarea>
+
+            <label for="phone_number">Номер телефона:</label>
+            <input type="tel" id="phone_number" name="phone_number" pattern="[0-9]{3} [0-9]{3} [0-9]{3}" required>
+            <small>Формат: 996 709 000 000</small>
+
+            <button type="submit">Заказать</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Пиццерия "Imperia"</p>
+    </footer>
+</body>
+</html>

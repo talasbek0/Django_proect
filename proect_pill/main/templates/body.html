@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/body.css' %}">
+     <link rel="icon" type="image/ico" href="{% static 'img/jpg.png' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imperia_Pizza</title>
+</head>
+<body>
+    <header>
+        <img src="static/img/jpg.png">
+        <ul>
+            <li><a href="{% url 'menu' %}">Меню</a></li>
+            <li><a href="{% url 'zakaz' %}">Доставка</a></li>
+            <li><a href="#">Контактная информация</a></li>
+            <li><a href="#">Акции и специальные предложения</a></li>
+            <li><a href="{% url 'reviews' %}">Отзывы и рейтинг</a></li>
+        </ul>
+    </header>
+</body>
+</html>
